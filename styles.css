@@ -1,0 +1,455 @@
+/* IPL 2026 Ticket Booking | Main stylesheet */
+
+/* 1. Theme variables */
+:root {
+    --primary: #101f46;
+    --primary-light: #1d3975;
+    --accent: #f4b942;
+    --background: #f4f6fb;
+    --surface: #ffffff;
+    --text: #20283a;
+    --muted: #687386;
+    --border: #e1e6ef;
+    --shadow: 0 8px 24px rgba(16, 31, 70, 0.09);
+    --radius: 14px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 105px;
+}
+
+body {
+    background: var(--background);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+}
+
+/* 2. Fixed navigation header */
+header {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 15px 7%;
+    background: var(--primary);
+    color: #fff;
+    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.18);
+}
+
+header h1 {
+    color: var(--accent);
+    font-size: clamp(1.15rem, 2.5vw, 1.7rem);
+    line-height: 1.2;
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    list-style: none;
+}
+
+nav a {
+    display: block;
+    padding: 9px 13px;
+    border-radius: 7px;
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+nav a:hover,
+nav a:focus-visible {
+    background: var(--accent);
+    color: var(--primary);
+    outline: none;
+}
+
+/* 3. Main layout and common sections */
+main {
+    width: min(1120px, 90%);
+    margin: 105px auto 45px;
+}
+
+section {
+    margin: 28px 0;
+    padding: clamp(22px, 4vw, 38px);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+    box-shadow: var(--shadow);
+}
+
+section h2 {
+    margin-bottom: 18px;
+    color: var(--primary);
+    font-size: clamp(1.45rem, 3vw, 2rem);
+}
+
+section h3 {
+    margin-bottom: 10px;
+    color: var(--primary-light);
+}
+
+section p {
+    color: var(--muted);
+}
+
+ul {
+    padding-left: 21px;
+}
+
+/* 4. Hero banner */
+.hero {
+    position: relative;
+    min-height: 390px;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    padding: 0;
+    border: 0;
+    background: linear-gradient(120deg, #101f46, #24529a 65%, #d99b2b);
+    text-align: center;
+}
+
+.hero::after {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(8, 19, 45, 0.86), rgba(8, 19, 45, 0.38));
+    content: "";
+}
+
+.hero > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.48;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    padding: 48px 24px;
+    color: #fff;
+}
+
+.hero-content h2 {
+    margin-bottom: 12px;
+    color: #fff;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    line-height: 1.15;
+}
+
+.hero-content p {
+    margin-bottom: 25px;
+    color: #f1f3f8;
+    font-size: 1.08rem;
+}
+
+.btn,
+button {
+    display: inline-block;
+    margin: 5px;
+    padding: 12px 22px;
+    border: 2px solid var(--accent);
+    border-radius: 8px;
+    background: var(--accent);
+    color: var(--primary);
+    font: inherit;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.btn:hover,
+button:hover {
+    transform: translateY(-2px);
+    background: #ffd16f;
+}
+
+.btn-outline {
+    border-color: #fff;
+    background: transparent;
+    color: #fff;
+}
+
+.btn-outline:hover {
+    background: #fff;
+    color: var(--primary);
+}
+
+/* 5. About cards */
+.info-grid,
+.guideline-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 20px;
+}
+
+.info-card,
+.guideline-grid article {
+    padding: 22px;
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    background: #fbfcff;
+}
+
+.info-card li {
+    margin: 6px 0;
+    color: var(--muted);
+}
+
+/* 6. Filter and tables */
+.filter-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+label {
+    color: var(--text);
+    font-weight: 600;
+}
+
+select,
+input {
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 12px;
+    border: 1px solid #cbd3e1;
+    border-radius: 7px;
+    background: #fff;
+    color: var(--text);
+    font: inherit;
+}
+
+.filter-row select {
+    width: min(300px, 100%);
+}
+
+select:focus,
+input:focus {
+    border-color: var(--primary-light);
+    outline: 3px solid rgba(36, 82, 154, 0.13);
+}
+
+.table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+}
+
+table {
+    width: 100%;
+    min-width: 720px;
+    border-collapse: collapse;
+    background: #fff;
+}
+
+caption {
+    padding: 13px;
+    color: var(--muted);
+    font-weight: 600;
+    text-align: left;
+}
+
+th,
+td {
+    padding: 14px 12px;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    background: var(--primary);
+    color: #fff;
+    font-size: 0.92rem;
+}
+
+tbody tr:nth-child(even) {
+    background: #f7f9fd;
+}
+
+tbody tr:hover {
+    background: #fff7e7;
+}
+
+tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.table-link {
+    display: inline-block;
+    padding: 6px 13px;
+    border-radius: 6px;
+    background: var(--accent);
+    color: var(--primary);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.table-link:hover {
+    background: #ffd16f;
+}
+
+.empty-row {
+    text-align: center;
+}
+
+/* 7. Booking form and summary */
+.booking-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(230px, 1fr);
+    gap: 24px;
+    align-items: start;
+}
+
+form,
+.booking-layout aside {
+    padding: 22px;
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    background: #fbfcff;
+}
+
+form p {
+    margin-bottom: 15px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 6px;
+}
+
+form button {
+    width: 100%;
+    margin: 5px 0 0;
+}
+
+.booking-layout aside h3 {
+    margin-bottom: 17px;
+}
+
+dl {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+}
+
+dt {
+    color: var(--muted);
+}
+
+dd {
+    color: var(--text);
+    font-weight: 700;
+    text-align: right;
+}
+
+/* 8. Guidelines and footer */
+.guideline-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.guideline-grid article p {
+    font-size: 0.95rem;
+}
+
+footer {
+    padding: 25px 7%;
+    background: var(--primary);
+    color: #fff;
+    text-align: center;
+}
+
+footer p {
+    color: #e7eaf1;
+}
+
+/* 9. Responsive layout */
+@media (max-width: 760px) {
+    html {
+        scroll-padding-top: 145px;
+    }
+
+    header {
+        flex-direction: column;
+        gap: 8px;
+        padding: 12px 4%;
+    }
+
+    nav ul {
+        justify-content: center;
+        gap: 3px;
+    }
+
+    nav a {
+        padding: 7px 9px;
+        font-size: 0.85rem;
+    }
+
+    main {
+        width: 94%;
+        margin-top: 150px;
+    }
+
+    .hero {
+        min-height: 340px;
+    }
+
+    .info-grid,
+    .booking-layout,
+    .guideline-grid {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 22px 17px;
+    }
+}
+
+@media (max-width: 420px) {
+    header h1 {
+        font-size: 1.15rem;
+    }
+
+    nav a {
+        padding: 6px 7px;
+        font-size: 0.78rem;
+    }
+
+    main {
+        margin-top: 140px;
+    }
+
+    .hero-content {
+        padding: 35px 15px;
+    }
+
+    .btn {
+        padding: 10px 15px;
+    }
+}
